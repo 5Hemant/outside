@@ -1,0 +1,9 @@
+.wp-block {
+    max-width: 90%;
+}
+
+.attachment-info .thumbnail img,
+.wp-core-ui .attachment .thumbnail img,
+.block-editor__container img {
+    border: none;
+}

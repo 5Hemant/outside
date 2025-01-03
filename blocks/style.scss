@@ -1,0 +1,21 @@
+// call helpers and mixins
+@import "../assets/scss/plugins/plugins";
+@import "../assets/scss/base/variable";
+@import "../assets/scss/mixins/import-mixins";
+// call blocks
+@import "image-video-block/style";
+@import "testimonial-block/style";
+@import "icon-block/style";
+@import "content-block/style";
+@import "two-column-block/style";
+@import "hero-banner-block/style";
+@import "client-block/style";
+@import "action-block/style";
+@import "icon-number-block/style";
+@import "column-content-block/style";
+@import "shortcode-block/style";
+@import "service-block/style";
+@import "our-process-block/style";
+@import "why-choose-us-block/style";
+@import "services-tile-block/style";
+@import "circle-block/style";

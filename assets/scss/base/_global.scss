@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    &:focus {
+        border: none;
+        outline: none;
+    }
+}
+
+body {
+    font-family: $font-1;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 400;
+    color: $charcoal;
+}
+
+strong {
+    font-weight: 700;
+}
+
+img {
+    display: block;
+}
+
+h1 {
+    color: $navy-blue;
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 75px;
+}
+
+h2 {
+    color: $navy-blue;
+    font-family: $font-2;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -3px;
+}
+
+h3 {
+    color: $charcoal;
+    font-family: $font-1;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.75px;
+}
+
+h4 {
+    color: $navy-blue;
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: normal;
+}
+
+h5 {
+    color: $navy-blue;
+    font-family: $font-2;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: normal;
+}
+
+h6 {
+    color: $navy-blue;
+    font-family: $font-1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: -0.75px;
+}
+
+p {
+    font-family: $font-1;
+    font-size: 16px;
+    font-weight: 400;
+    color: $charcoal;
+    line-height: 130%;
+    margin-bottom: 25px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    font-family: $font-2;
+    text-decoration: none;
+    color: $charcoal;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    @include breakpoint(xl) {
+        max-width: 100%;
+        padding: 0;
+    }
+    @include breakpoint(xxl) {
+        max-width: 1240px;
+        padding: 0;
+    }
+    .row {
+        padding: 0 15px;
+        @include breakpoint(xxl) {
+            padding: 0;
+        }
+    }
+}
+
+.desktop-hide {
+    display: inline-block;
+    @include breakpoint(tablet) {
+        display: none;
+    }
+}
+
+i {
+    &.icon {
+        &.icon-close {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            cursor: pointer;
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 23px;
+                height: 23px;
+                background-image: url('./../../dist/images/close.svg');
+            }
+        }
+        &.icon-prev {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 10px;
+                height: 13px;
+                background-image: url('./../../dist/images/prev.svg');
+            }
+        }
+        &.icon-next {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 10px;
+                height: 13px;
+                background-image: url('./../../dist/images/next.svg');
+            }
+        }
+        &.icon-left {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 11px;
+                height: 22px;
+                background-image: url('./../../dist/images/arrow-left.svg');
+            }
+        }
+    }
+}

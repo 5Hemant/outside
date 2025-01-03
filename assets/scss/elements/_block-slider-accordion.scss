@@ -1,0 +1,160 @@
+.block-slider-accordion {
+    padding: 75px 0;
+    .block-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        min-height: 350px;
+        @include breakpoint(tablet) {
+            min-height: 750px;
+            flex-wrap: nowrap;
+        }
+        .slider-wrap {
+            max-width: 100%;
+            width: 100%;
+            @include breakpoint(tablet) {
+                max-width: 50%;
+            }
+            @include breakpoint(xxl) {
+                max-width: 774px;
+            }
+            .slick-list,
+            .slick-track {
+                height: 100%;
+            }
+            .item {
+                width: 100%;
+                height: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .accordion-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .progress-bar {
+                margin-top: 62px;
+                height: 1px;
+                width: 100%;
+                background-color: $stone-900;
+                position: relative;
+                .progress {
+                    height: 3px;
+                    background-color: $stone-900;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .accordion-sections {
+                .slider-nav {
+                    margin: 0;
+                    li {
+                        list-style-type: none;
+                        padding: 16px 0;
+                        border-bottom: 1px solid $stone-900;
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                        .acc-title {
+                            margin-bottom: 8px;
+                            cursor: pointer;
+                        }
+                        .acc-content {
+                            display: none;
+                            font-size: 16px;
+                        }
+                        &.active {
+                            .acc-content {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            .bottom-content-wrap {
+                .title-wrap {
+                    margin-bottom: 8px;
+                }
+                .content-wrap {
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slider-wrap {
+    position: relative;
+    visibility: hidden;
+    transition: all 1.2s ease;
+    &.slick-initialized {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.slick-slide {
+    cursor: pointer;
+    position: relative;
+    margin: 0 5px;
+    margin-top: 7px;
+    &::before {
+        background-color: #000;
+        opacity: .4;
+        z-index: 1;
+    }
+    video {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: 300px;
+        height: 300px;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    iframe {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        z-index: 1;
+        @include breakpoint(tablet) {
+            position: absolute;
+            min-height: 750px;
+            flex-wrap: nowrap;
+        }
+    }
+    .loading {
+        position: absolute;
+        top: 44%;
+        left: 0;
+        width: 100%;
+    }
+    .embed-player {
+        animation: slideOut .4s cubic-bezier(0.4, 0.29, 0.01, 1);
+    }
+    &.slick-active {
+        margin-top: 0px;
+        z-index: 1;
+        .embed-player {
+            animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+        }
+        &::before {
+            display: none;
+        }
+        iframe {
+            pointer-events: all;
+        }
+    }
+}

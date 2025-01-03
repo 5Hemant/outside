@@ -1,0 +1,71 @@
+header {
+    border-bottom: 1px solid $grey-2;
+    .top-bar-area {
+        background-color: $navy-blue;
+        padding: 12px 0 8px 0;
+        .content-wrap {
+            position: relative;
+            color: $white;
+            text-align: center;
+            font-family: $font-3;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 21px;
+            font-style: italic;
+        }
+    }
+    .logo-area {
+        position: relative;
+        .header-wrap {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            justify-content: space-between;
+            @include breakpoint(tablet) {
+                justify-content: start;
+            }
+        }
+        .menu-wrap {
+            display: flex;
+            align-items: center;
+            .mobile-menu-btn {
+                transition: box-shadow .15s ease-in-out;
+                cursor: pointer;
+                padding: 12px 0 11px 0;
+                display: block;
+                z-index: 99;
+                @include breakpoint(tablet) {
+                    display: none;
+                }
+                .toggler-icon {
+                    width: 22px;
+                    height: 1px;
+                    background-color: $navy-blue;
+                    display: block;
+                    margin: 8px 0;
+                    position: relative;
+                    border-radius: 15px;
+                    -webkit-transition: all 0.3s ease-out 0s;
+                    transition: all 0.3s ease-out 0s;
+                }
+                &.active {
+                    .toggler-icon {
+                        &:nth-of-type(1) {
+                            -webkit-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                            top: 9px;
+                        }
+                        &:nth-of-type(2) {
+                            opacity: 0;
+                        }
+                        &:nth-of-type(3) {
+                            -webkit-transform: rotate(135deg);
+                            transform: rotate(135deg);
+                            top: -9px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
