@@ -361,10 +361,7 @@ if (!function_exists('ot_get_menu_layout_column_nav')) {
 						$tag = '<span class="item-tag">New!</span>';
 					}
 
-					// $active = '';
-					// if( $t == 0 ){
-					// 	$has_sub .= ' active';
-					// }
+				
 
 				?>
 					<li class="menu-item <?php echo $has_sub; ?>">
@@ -454,8 +451,12 @@ if (!function_exists('get_menu_layout_column_nav')) {
 }
 if (!function_exists('get_menu_layout_slider')) {
 	function get_menu_layout_slider($sub_item){
+		$show_item = 2;
+		if( $sub_item['slide_to_show'] ){
+			$show_item = $sub_item['slide_to_show'];
+		}
 		?>
-		<div class="sub-menu-item layout-slider">
+		<div class="sub-menu-item layout-slider" data-show="<?php echo $show_item; ?>">
 			<?php
 			if( $sub_item['column_title'] ){
 			?>
@@ -477,11 +478,7 @@ if (!function_exists('get_menu_layout_slider')) {
 			<?php
 			}
 			?>
-			<?php
-			$show_item = 2;
-			if( $sub_item['slide_to_show'] ){
-				$show_item = $sub_item['slide_to_show'];
-			}
+			<?php			
 			if( $sub_item['Choose_Playbox'] ){
 			?>
 				<div class="layout-slider-wrap">
@@ -603,7 +600,7 @@ if (!function_exists('get_menu_tab_content')) {
 if (!function_exists('get_mobile_nav_slider')) {
 	function get_mobile_nav_slider($data){
 		?>
-		<div class="menu-slider desktop-hide">
+		<div class="menu-slider">
 			<?php
 			if( $data['nav_title'] ){
 			?>

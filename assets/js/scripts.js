@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hamburger) hamburger.classList.remove("active");
         if (menuWrap) menuWrap.classList.remove("active");
 
-        ctMenuSlider();
+        // ctMenuSlider();
     });
 });
 
@@ -68,8 +68,8 @@ function ctMenuActions() {
             hamburger.classList.toggle("active");
             const menuWrap = document.querySelector(".menu-wrap");
             if (menuWrap) menuWrap.classList.toggle("active");
-            ctMenuSlider();
-            ctNavSlider();
+            const menuSlider = document.querySelector('.menu-slider .menu-slider-wrap .menu-slider-init');
+            jQuery(menuSlider).slick("reinit");
         });
     }
 
@@ -78,8 +78,8 @@ function ctMenuActions() {
             e.preventDefault();
             const subMenu = link.closest(".menu-item.has-sub-menu").querySelector(".sub-menu-wrap");
             if (subMenu) subMenu.style.display = "block"; // Slide down replacement
-            ctMenuSlider();
-            ctNavSlider();
+            const menuSlider = document.querySelector('.menu-slider .menu-slider-wrap .menu-slider-init');
+            jQuery(menuSlider).slick("reinit");
         });
     });
 
@@ -88,7 +88,7 @@ function ctMenuActions() {
             e.preventDefault();
             const subMenu = button.closest(".sub-menu-wrap");
             if (subMenu) subMenu.style.display = "none"; // Slide up replacement
-            ctMenuSlider();
+            // ctMenuSlider();
         });
     });
 }
@@ -141,6 +141,8 @@ function ctMenuSlider() {
                 adaptiveHeight: false,
                 mobileFirst: true,
                 useCSS: false,
+                nextArrow: '<button type="button" class="slick-next slick-arrow"><i class="icon icon-next"></i></button>',
+                prevArrow: '<button type="button" class="slick-prev slick-arrow"><i class="icon icon-prev"></i></button>',
                 responsive: [{
                     breakpoint: 767,
                     settings: {
